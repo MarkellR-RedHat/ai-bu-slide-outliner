@@ -1,14 +1,14 @@
-# ai-bu-slide-outliner
+# Slide Outliner
 
-Your talk is in two weeks. You have 47 slides and no idea which ones to cut. You know it is too long but everything feels important. Your speaker notes are three paragraphs per slide because you are afraid of forgetting something on stage. Your opening slide says "Agenda."
+**Your talk is too long and you know it.**
 
-This is fixable.
+You have 47 slides. Your speaker notes are three paragraphs per slide because you are afraid of forgetting something. Your opening slide says "Agenda." Your closing slide says "Questions?" You rehearse by reading your notes word for word and never looking up.
 
-These are Claude Code commands that coach you through building a talk. They will not generate slides for you. They will force you to find the ONE message your talk is building toward, cut everything that does not serve it, and replace your teleprompter scripts with cue cards that let you actually look at the audience.
+Slide Outliner is a set of Claude Code commands that coach you through building a talk worth giving. They will not generate slides for you. They will force you to find the ONE message your talk is building toward, cut everything that does not serve it, and replace your teleprompter scripts with cue cards that let you actually look at the audience.
 
 ## Before and After
 
-**Before:** A 20-minute talk outline with 22 slides
+**Before:** 22 slides, no argument, three-paragraph speaker notes
 
 ```
 Slide 1:  Agenda
@@ -35,9 +35,7 @@ Slide 21: Thank You
 Slide 22: Questions?
 ```
 
-Speaker notes: 3-paragraph scripts per slide. The presenter reads them word for word and never looks up.
-
-**After:** The same talk, 14 slides, one argument
+**After:** 11 slides, one argument, cue-card notes
 
 ```
 ONE MESSAGE: "Disaggregated serving doubles GPU utilization
@@ -54,132 +52,68 @@ Slide 8:  [SIGNATURE SLIDE] "2x GPU utilization. 40% faster TTFT."
 Slide 9:  The tradeoffs we are honest about
 Slide 10: What is next (3 items, grounded, not aspirational)
 Slide 11: "If your GPU utilization is below 50%, this is worth trying"
-          (call to action + QR code + callback to slide 1)
+           (call to action + QR code + callback to slide 1)
 ```
 
-Speaker notes: 2-3 cue phrases per slide. "Tell the 3 AM story." "Mention the 73% stat." "Pause after the number lands."
+Speaker notes went from paragraphs to cue phrases: "Tell the 3 AM story." "Mention the 73% stat." "Pause after the number lands."
 
-What changed: the agenda, about me, overview, thank you, and questions slides are gone. Four component deep-dives collapsed into one diagram. Two metrics slides merged into one signature slide. The talk now has a single argument, and every slide advances it.
+What changed: Agenda, About Me, Overview, Thank You, and Questions slides are gone. Four component deep-dives collapsed into one diagram. Two metrics slides merged into one signature slide. The talk now has a single argument and every slide advances it.
+
+## Quick Start
+
+```bash
+git clone https://github.com/MarkellR-RedHat/ai-bu-slide-outliner.git
+cd ai-bu-slide-outliner
+./install.sh
+```
+
+Then restart Claude Code and try:
+
+```
+/slides Kubernetes Operators | Platform Engineers | 20 minutes
+```
 
 ## Commands
 
-### `/slides`
+| Command | What it does | Example |
+|---------|-------------|---------|
+| `/slides` | Generate a full outline built around one core message | `/slides AI Strategy Update \| VP Eng \| 15 min` |
+| `/slide-review` | Brutal review: kill, sharpen, or ship every slide | `/slide-review [paste your outline]` |
+| `/slide-notes` | Replace script notes with cue cards | `/slide-notes [paste your outline]` |
+| `/slide-pacing` | Timing analysis and audience energy mapping | `/slide-pacing [paste your outline]` |
+| `/slide-hooks` | 5 alternative opening sequences for the first 60 seconds | `/slide-hooks Kubernetes Operators \| Platform Engineers` |
+| `/slide-story` | Narrative structure: situation, complication, resolution | `/slide-story Why We Rebuilt CI \| Eng Leads \| 20 min` |
+| `/slide-from-doc` | Distill a long document into a focused talk | `/slide-from-doc [paste doc] \| Platform Eng \| 20 min` |
+| `/slide-to-marp` | Convert outline to Marp markdown with Red Hat theme | `/slide-to-marp [paste your outline]` |
+| `/slide-visuals` | Visual treatment suggestions for every slide | `/slide-visuals [paste your outline]` |
 
-Generates a complete presentation outline from scratch, built around one core message.
+### Typical workflow
 
-**Usage:**
-```
-/slides Kubernetes Operators | Platform Engineers | 20 minutes
-/slides AI Strategy Update | VP Engineering | 15 minutes | executive update
-/slides KV Cache Routing | ML Engineers | 5 minutes | lightning talk
-```
+1. **Start with `/slides`** to generate your first outline around one message.
+2. **Run `/slide-review`** to get a brutally honest assessment of what to cut.
+3. **Use `/slide-notes`** to replace paragraph scripts with cue-card notes.
+4. **Check `/slide-pacing`** to find energy dead zones and timing problems.
+5. **Try `/slide-hooks`** if your opening is weak.
 
-**What you get:**
-- Pre-work section identifying the ONE message, call to action, and signature slide
-- Slide-by-slide breakdown with 2-4 bullet points each (never more)
-- Speaker notes as cue cards (reminders, not scripts)
-- Transition hooks between every slide
-- Visual suggestions for key slides
-- Pacing summary with energy levels
-- Q&A preparation with anticipated questions
+### Command details
 
-The command enforces the ONE MESSAGE rule: before generating any slides, it identifies the single sentence the entire talk is building toward. Every slide must advance that argument. Any slide that does not gets cut.
+**`/slides`** enforces the ONE MESSAGE rule: before generating any slides, it identifies the single sentence the entire talk builds toward. Every slide must advance that argument. Anything that does not gets cut. You get a slide-by-slide breakdown with 2-4 bullet points each, transition hooks, visual suggestions, pacing summary, and Q&A prep.
 
-### `/slide-notes`
+**`/slide-review`** runs your outline through 8 tests: the Drunk Test (can someone explain your point after two beers?), the 4PM Friday Test (would a tired audience care about your opening?), slide-by-slide verdicts (KILL IT / SHARPEN / SHIP IT / MISSING), anti-pattern detection, pacing analysis, speaker notes audit, and structural integrity checks. Ends with the three changes that would most improve the talk.
 
-Takes an existing slide deck outline and generates presenter cue cards.
+**`/slide-notes`** takes your existing outline and generates presenter cue cards. Not sentences. Reminder phrases, emotional beat markers like `[BUILD TENSION]` and `[LET IT BREATHE]`, timing markers, stage directions, and transition hooks. For complex slides, it adds rescue notes: what to say if the audience looks confused, if you are running long, or if a question derails you.
 
-**Usage:**
-```
-/slide-notes [paste or reference your outline]
-```
+**`/slide-story`** uses the SCR (Situation, Complication, Resolution) framework. Includes an emotional arc visualization, three alternative openings, a movie logline test, and chapter-title slides for act transitions. Best for proposals, case studies, lessons learned, and persuasion talks.
 
-Useful when you already have slides but your speaker notes are three-paragraph scripts. The generated notes include reminder phrases (not sentences), emotional beat markers like `[BUILD TENSION]` and `[LET IT BREATHE]`, timing markers, stage directions, and transition hooks. For complex slides, it adds rescue notes: what to say if the audience looks confused, if you are running long, or if a question derails you.
+**`/slide-from-doc`** performs document surgery: it shows you exactly what it kept, what it cut, and why. Reorganizes for narrative impact (not document section order), leads with the conclusion, and converts analysis paragraphs into single compelling data points.
 
-### `/slide-review`
-
-Reviews a presentation outline with zero tolerance for filler.
-
-**Usage:**
-```
-/slide-review [paste or reference your outline]
-```
-
-Runs your outline through 8 tests: the Drunk Test (can someone explain your point after two beers?), the 4PM Friday Test (would a tired audience care about your opening?), slide-by-slide verdicts (KILL IT / SHARPEN / SHIP IT / MISSING), anti-pattern detection, pacing analysis, speaker notes audit, and structural integrity checks. Ends with the three changes that would most improve the talk.
-
-### `/slide-pacing`
-
-Analyzes timing and audience energy across your entire talk.
-
-**Usage:**
-```
-/slide-pacing [paste or reference your outline]
-```
-
-Goes beyond "is it too long" to analyze the energy rhythm. Flags danger zones where 3+ dense slides stack up without breathing room. Generates a visual energy map, a presenter timing sheet with checkpoint markers, cut recommendations if you are over time, and rehearsal priorities. Includes a "last exit marker" showing where to skip ahead if you are running behind.
-
-### `/slide-hooks`
-
-Generates 5 alternative opening sequences using different proven techniques.
-
-**Usage:**
-```
-/slide-hooks Kubernetes Operators | Platform Engineers
-/slide-hooks [paste full outline for tailored openings]
-```
-
-The first 60 seconds determine whether the audience puts down their phones. This command generates openings using: a surprising statistic, a personal failure story, a live demo gone wrong, an audience poll, and a provocative question. Each opening is written word-for-word and ready to deliver, with risk ratings, memorability scores, and recovery plans.
-
-### `/slide-story`
-
-Builds a presentation using narrative structure: situation, complication, resolution.
-
-**Usage:**
-```
-/slide-story Why We Rebuilt Our CI Pipeline | Engineering Leads | 20 minutes
-```
-
-For when you need to tell a story, not just present facts. Uses the SCR (Situation, Complication, Resolution) framework. Includes an emotional arc visualization, three alternative openings, a movie logline test, and chapter-title slides for act transitions. Best for proposals, case studies, lessons learned, and persuasion talks.
-
-### `/slide-from-doc`
-
-Takes a long document and distills it into a slide deck outline.
-
-**Usage:**
-```
-/slide-from-doc [paste document or provide file path]
-/slide-from-doc [document] | Platform Engineers | 20 minutes
-```
-
-Distillation is destruction. A great talk built from a document keeps 20% of the content and 100% of the impact. This command performs document surgery: it shows you exactly what it kept, what it cut, and why. It reorganizes for narrative impact (not document section order), leads with the conclusion, and converts analysis paragraphs into single compelling data points.
-
-### `/slide-to-marp`
-
-Converts an existing outline into Marp markdown format with Red Hat visual identity.
-
-**Usage:**
-```
-/slide-to-marp [paste or reference your outline]
-```
-
-Outputs a complete `.md` file with Marp front matter, Red Hat fonts and colors, slide separators, speaker notes in comment syntax, image placeholders with search terms, and Mermaid diagram code. Includes rendering instructions for Marp CLI and presenter tips.
-
-### `/slide-visuals`
-
-Suggests specific visual treatments for every slide in your outline.
-
-**Usage:**
-```
-/slide-visuals [paste or reference your outline]
-```
-
-For each slide: visual type recommendation, specific image search terms for Unsplash and Pexels, Mermaid diagram code where applicable, layout guidance, animation suggestions, and cliche traps to avoid. Identifies the signature slide and provides extra detail on making it shareable.
+**`/slide-to-marp`** outputs a complete `.md` file with Marp front matter, Red Hat fonts and colors, slide separators, speaker notes in comment syntax, image placeholders, and Mermaid diagram code. Includes rendering instructions for Marp CLI and presenter tips.
 
 ## Templates
 
-Reference templates for common presentation formats are in the `templates/` directory:
+Reference templates for common formats live in `templates/`:
 
-| Template | Duration | Slides | Best For |
+| Template | Duration | Slides | Best for |
 |----------|----------|--------|----------|
 | `technical-deep-dive.md` | 30-40 min | 18-25 | Architecture talks, demos, how-it-works sessions |
 | `lightning-talk.md` | 5 min | 5-7 | Conference lightning rounds, meetup short talks |
@@ -187,17 +121,6 @@ Reference templates for common presentation formats are in the `templates/` dire
 | `demo-heavy-talk.md` | 30-40 min | 10-14 | Talks where 60% of the time is live demos |
 | `panel-prep.md` | 30-60 min | N/A | Panel discussion preparation (talking points, not slides) |
 | `ignite-talk.md` | 5 min | 20 | Ignite format: 20 slides, 15 seconds each, auto-advancing |
-
-## Install
-
-```bash
-git clone https://github.com/MarkellR-RedHat/ai-bu-slide-outliner.git
-cd ai-bu-slide-outliner
-chmod +x install.sh
-./install.sh
-```
-
-This copies the commands to `~/.claude/commands/`. Restart Claude Code to pick them up.
 
 ## Contributing
 

@@ -1,5 +1,5 @@
 #!/bin/bash
-# install.sh - Install ai-bu-slide-outliner commands into Claude Code
+# install.sh - Install Slide Outliner commands into Claude Code
 
 set -e
 
@@ -16,10 +16,23 @@ NC='\033[0m'
 echo ""
 echo -e "${BOLD}Slide Outliner${NC}"
 echo "Presentation coaching commands for Claude Code"
-echo -e "${DIM}Your talk has one message. These commands help you find it.${NC}"
 echo ""
 
-# Check for existing commands and warn
+# Check that the commands directory exists in the repo
+if [ ! -d "$SCRIPT_DIR/commands" ]; then
+  echo -e "${RED}Error:${NC} commands/ directory not found in $SCRIPT_DIR"
+  echo "Make sure you cloned the full repository."
+  exit 1
+fi
+
+# Count available commands
+AVAILABLE=$(ls "$SCRIPT_DIR"/commands/*.md 2>/dev/null | wc -l | tr -d ' ')
+if [ "$AVAILABLE" -eq 0 ]; then
+  echo -e "${RED}Error:${NC} No command files found in commands/"
+  exit 1
+fi
+
+# Check for existing commands and note updates
 if [ -d "$COMMANDS_DIR" ]; then
   EXISTING=0
   for cmd in "$SCRIPT_DIR"/commands/*.md; do
@@ -32,35 +45,29 @@ if [ -d "$COMMANDS_DIR" ]; then
   fi
 fi
 
-mkdir -p "$COMMANDS_DIR"
+# Create the commands directory
+mkdir -p "$COMMANDS_DIR" || {
+  echo -e "${RED}Error:${NC} Could not create $COMMANDS_DIR"
+  exit 1
+}
 
+# Install each command, showing progress
+echo -e "${CYAN}Installing commands:${NC}"
 INSTALLED=0
 for cmd in "$SCRIPT_DIR"/commands/*.md; do
-  cp "$cmd" "$COMMANDS_DIR/$(basename "$cmd")"
-  echo -e "  ${GREEN}+${NC} /$(basename "$cmd" .md)"
+  NAME="$(basename "$cmd" .md)"
+  cp "$cmd" "$COMMANDS_DIR/$(basename "$cmd")" || {
+    echo -e "  ${RED}x${NC} /$NAME (copy failed)"
+    continue
+  }
+  echo -e "  ${GREEN}+${NC} /$NAME"
   INSTALLED=$((INSTALLED + 1))
 done
 
 echo ""
-echo -e "${CYAN}Core commands:${NC}"
-echo "  /slides         - Generate an outline built around one message"
-echo "  /slide-notes    - Cue cards, not scripts, for your slides"
-echo "  /slide-review   - Brutal review: what to kill, sharpen, or ship"
-echo "  /slide-story    - Narrative structure: situation, complication, resolution"
-echo "  /slide-from-doc - Distill a document into a focused talk"
-echo "  /slide-to-marp  - Convert to Marp markdown with Red Hat theme"
+echo -e "${GREEN}Installed ${INSTALLED} commands.${NC}"
 echo ""
-echo -e "${CYAN}Refinement commands:${NC}"
-echo "  /slide-pacing   - Timing analysis and audience energy mapping"
-echo "  /slide-visuals  - Visual treatment suggestions per slide"
-echo "  /slide-hooks    - 5 alternative opening sequences"
+echo "Restart Claude Code, then try:"
 echo ""
-echo -e "${CYAN}Templates in templates/:${NC}"
-echo "  technical-deep-dive.md  - 30-40 min technical talk"
-echo "  lightning-talk.md       - 5 min lightning talk"
-echo "  executive-update.md     - 15 min leadership update"
-echo "  demo-heavy-talk.md      - 60% demo format"
-echo "  panel-prep.md           - Panel preparation"
-echo "  ignite-talk.md          - 20 slides, 15s each"
+echo "  /slides Your Topic | Your Audience | 20 minutes"
 echo ""
-echo -e "${GREEN}Installed ${INSTALLED} commands.${NC} Restart Claude Code to use them."
