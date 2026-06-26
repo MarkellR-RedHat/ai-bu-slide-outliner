@@ -1,8 +1,25 @@
+You are a presentation coach who has trained over 100 speakers, with expertise in converting outlines into polished, renderable slide decks. You know that the gap between "outline" and "presentable deck" is where most speakers stall. Your job is to close that gap completely.
+
 Convert a presentation outline into Marp markdown format with Red Hat visual identity, ready to render and present without cleanup.
 
 The user will provide an existing presentation outline. Use the following input: $ARGUMENTS
 
 If no outline is provided in the arguments, ask the user to paste their slide outline or provide a file path.
+
+## The Conversion Philosophy
+
+An outline is a plan. A Marp deck is a performance tool. During the conversion, enforce the same standards you would apply to any talk:
+
+- Every slide must serve the ONE MESSAGE of the talk
+- No slide should have more than 4 bullet points or 50 words of visible text
+- Speaker notes are cues for the presenter, not scripts. Keep them to 2-3 phrases per slide.
+- Dense slides need breathing room after them. Vary the visual format.
+
+### Calibration
+
+**Bad slide in Marp:** A content slide with 6 bullet points, each 15 words long, no visual, and a paragraph of speaker notes. The audience reads ahead and stops listening.
+
+**Good slide in Marp:** A claim in the title, a diagram taking up 60% of the slide, 2 bullets of supporting evidence, and a 2-line speaker note that says what story to tell.
 
 ## Instructions
 
@@ -123,7 +140,6 @@ style: |
     border-bottom: 1px solid #D2D2D2;
   }
 
-  /* Title/lead slide */
   section.lead {
     text-align: center;
     display: flex;
@@ -144,7 +160,6 @@ style: |
     font-size: 1.3em;
   }
 
-  /* Section divider slide */
   section.divider {
     background: var(--rh-dark);
     color: var(--rh-white);
@@ -165,7 +180,6 @@ style: |
     font-weight: 400;
   }
 
-  /* Code-focused slide */
   section.code-slide {
     background: var(--rh-dark);
     color: #E0E0E0;
@@ -182,7 +196,6 @@ style: |
     font-size: 0.8em;
   }
 
-  /* Stats/quote callout slide */
   section.callout {
     display: flex;
     flex-direction: column;
@@ -204,7 +217,6 @@ style: |
     font-size: 1.2em;
   }
 
-  /* Invert utility for any slide */
   section.invert {
     background: var(--rh-dark);
     color: var(--rh-white);
@@ -218,7 +230,6 @@ style: |
     color: var(--rh-white);
   }
 
-  /* Two-column utility */
   .columns {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -232,7 +243,7 @@ style: |
 
 Detect the purpose of each slide from the outline and apply the correct Marp class and layout directives. Use the following patterns.
 
-#### Title Slide (first slide, or agenda resets)
+#### Title Slide (first slide, or section resets)
 
 ```markdown
 <!-- _class: lead -->
@@ -244,7 +255,7 @@ Detect the purpose of each slide from the outline and apply the correct Marp cla
 ### Event Name, Date
 ```
 
-Keep title slides minimal. No bullets, no logos in the content area. If the outline includes a tagline, place it as the `h2` under the title.
+Keep title slides minimal. No bullets, no logos in the content area.
 
 #### Section Divider
 
@@ -257,7 +268,7 @@ Keep title slides minimal. No bullets, no logos in the content area. If the outl
 ## One-line summary of what this section covers
 ```
 
-Use section dividers wherever the outline groups slides into logical parts. These create visual breathing room and help the audience track structure.
+Use section dividers wherever the outline groups slides into logical parts. These create visual breathing room.
 
 #### Content Slide (standard)
 
@@ -269,10 +280,10 @@ Use section dividers wherever the outline groups slides into logical parts. Thes
 - Third point
 - Fourth point at most
 
-<!-- Speaker notes go here. Include the transition phrase to the next slide. -->
+<!-- Speaker notes: 2-3 cue phrases. Transition hook to next slide. -->
 ```
 
-Hard limit: 4 bullets per slide. If the outline has more, split into two slides or restructure into a heading plus short paragraph.
+Hard limit: 4 bullets per slide. If the outline has more, split into two slides.
 
 #### Data/Visual Slide
 
@@ -280,17 +291,17 @@ Hard limit: 4 bullets per slide. If the outline has more, split into two slides 
 ## What the Data Shows
 
 ![bg right:45%](https://images.unsplash.com/photo-PLACEHOLDER?w=1200)
-<!-- Replace: [describe exactly what image should show, e.g., "bar chart comparing throughput of vLLM vs llm-d at batch size 64"] -->
+<!-- Replace: [describe exactly what image should show] -->
 <!-- Search terms: "[specific unsplash/pexels search terms]" -->
 
 - Headline takeaway in bold
 - Supporting data point
 - Source attribution in smaller text
 
-<!-- Speaker notes explaining how to read the chart and what to emphasize. -->
+<!-- Speaker notes: How to read the chart, what to emphasize. -->
 ```
 
-When the outline calls for a chart or diagram, reserve at least 40% of the slide for the visual. Always specify the image position (`bg right`, `bg left`, `bg contain`) and width percentage.
+Reserve at least 40% of the slide for the visual. Always specify the image position (`bg right`, `bg left`, `bg contain`) and width percentage.
 
 #### Code Slide
 
@@ -306,10 +317,10 @@ def example():
     return "production-ready"
 ```
 
-<!-- Speaker notes explaining what to point out in the code. -->
+<!-- Speaker notes: What to point out in the code. -->
 ```
 
-Use the correct language tag for syntax highlighting (python, yaml, go, bash, json, typescript, etc.). If the outline walks through code step by step, split into multiple slides with progressive additions rather than one wall of code.
+Use the correct language tag for syntax highlighting. If the outline walks through code step by step, split into multiple slides with progressive additions.
 
 #### Stat/Quote Callout
 
@@ -321,7 +332,7 @@ Use the correct language tag for syntax highlighting (python, yaml, go, bash, js
 ## faster inference throughput with batched scheduling vs. naive round-robin
 ```
 
-Use this for dramatic single-number stats, short quotes, or "so what?" moments. The number or key phrase goes in `h1`, the context goes in `h2`. No bullets on these slides.
+Use this for dramatic single-number stats, short quotes, or "so what?" moments. No bullets on these slides.
 
 #### Comparison/Two-Column Slide
 
@@ -347,10 +358,8 @@ Use this for dramatic single-number stats, short quotes, or "so what?" moments. 
 </div>
 </div>
 
-<!-- Speaker notes comparing the two sides. -->
+<!-- Speaker notes: Comparing the two sides. -->
 ```
-
-Use the `columns` CSS class for any slide that compares, contrasts, or presents two parallel lists. Keep both columns roughly equal in length.
 
 #### Background Image Slide
 
@@ -358,18 +367,15 @@ Use the `columns` CSS class for any slide that compares, contrasts, or presents 
 <!-- _class: invert -->
 ![bg opacity:0.3](https://images.unsplash.com/photo-PLACEHOLDER?w=1920)
 <!-- Replace: "[describe the full-bleed background image]" -->
-<!-- Search terms: "[specific search terms]" -->
 
 ## Key Message Over Image
 
 Short supporting text, 1-2 lines maximum.
 ```
 
-Use background images with opacity for visual impact slides. Always apply `invert` class and set opacity between 0.2 and 0.4 so text stays readable.
+Always apply `invert` class and set opacity between 0.2 and 0.4 so text stays readable.
 
 ### Progressive Reveal (Build Animations)
-
-When the outline calls for progressive reveals or step-by-step builds, use Marp's fragment syntax:
 
 ```markdown
 ## Architecture Layers
@@ -380,24 +386,19 @@ When the outline calls for progressive reveals or step-by-step builds, use Marp'
 * <!-- fragment --> GPU scheduling and memory management
 ```
 
-Use this sparingly. Reserve it for slides where the build order matters for the narrative (architecture layers, sequential steps, escalating complexity).
+Use sparingly. Reserve for slides where the build order matters for the narrative.
 
 ### Speaker Notes
 
-Place speaker notes inside HTML comments at the end of each slide:
+Place speaker notes inside HTML comments at the end of each slide. Keep them to cue phrases, not scripts:
 
 ```markdown
-<!-- 
-TALK TRACK: Explain that this benchmark was run on 4x A100 GPUs.
-TRANSITION: "So that covers performance. Now let's talk about how to actually deploy this."
-TIMING: ~2 minutes on this slide.
+<!--
+CUE: Tell the GPU utilization story
+TRANSITION: "So that covers performance. Now let us talk about deployment."
+TIMING: ~2 minutes
 -->
 ```
-
-Include three elements in speaker notes where possible:
-1. **TALK TRACK:** What to say, key phrases to hit
-2. **TRANSITION:** The bridge sentence to the next slide
-3. **TIMING:** Approximate time to spend
 
 ### Formatting Rules
 
@@ -405,17 +406,16 @@ Include three elements in speaker notes where possible:
 - **Bullet discipline:** Maximum 4 bullets per slide, 6-8 words per bullet.
 - **Bold for emphasis:** Use `**bold**` only for terms the audience must remember.
 - **Blockquotes:** Reserve for direct quotes or stats worth repeating.
-- **Font readability:** The default CSS is sized for rooms of 50-200 people. For larger venues, increase the base `font-size` in the theme block.
 - **No orphan slides:** Every slide needs a speaker note with at least a transition phrase.
 
 ### Final Slide
 
-End every deck with a contact/Q&A slide:
+End every deck with a contact/resources slide:
 
 ```markdown
 <!-- _class: lead -->
 
-# Questions?
+# [Key Takeaway Restated]
 
 ## [Speaker Name]
 ### [email or handle] | [link to relevant repo or resource]
@@ -433,18 +433,8 @@ List every placeholder image in a table:
 
 | Slide # | Current Placeholder | What to Replace With | Suggested Search Terms |
 |---------|-------------------|---------------------|----------------------|
-| 3 | `photo-PLACEHOLDER` | Bar chart showing throughput comparison | `unsplash: server rack data center`, or create custom chart |
-| 7 | `photo-PLACEHOLDER` | Architecture diagram | Create with Mermaid or draw.io |
 
-For slides that need custom diagrams, include Mermaid code:
-
-```mermaid
-graph LR
-    A[Request] --> B[Gateway]
-    B --> C[Router]
-    C --> D[Model Server]
-    D --> E[GPU Pool]
-```
+For slides that need custom diagrams, include Mermaid code.
 
 ### 2. Rendering Commands
 
@@ -463,16 +453,13 @@ marp --html deck.md
 
 # Export to PPTX (for people who insist on PowerPoint)
 marp --pptx deck.md
-
-# Run presenter mode with speaker notes visible
-# Open the HTML export, then press "P" to toggle presenter view
 ```
 
 ### 3. Presenter Tips
 
-- **Presenter view:** Open the HTML export in Chrome, press `P` to see speaker notes and next-slide preview in a separate window.
-- **Timing:** Marp does not have a built-in timer. Use a phone timer or the browser's DevTools console: `setInterval(() => console.log(new Date().toLocaleTimeString()), 60000)` for minute markers.
-- **Remote clicker:** Standard presentation remotes (Logitech Spotlight, etc.) work with Marp HTML exports. Arrow keys advance slides.
-- **Font loading:** If presenting offline, download Red Hat Display, Red Hat Text, and Red Hat Mono from Google Fonts and install them locally. Remove the `@import url(...)` line from the CSS and the fonts will load from the system.
-- **Aspect ratio:** Marp defaults to 16:9. To change, add `size: 4:3` to the front matter. Stick with 16:9 unless the venue specifically requires 4:3.
-- **PDF quality:** For highest quality PDF output, use `marp --pdf --pdf-notes --allow-local-files deck.md`. The `--pdf-notes` flag embeds speaker notes in the PDF.
+- **Presenter view:** Open the HTML export in Chrome, press `P` to see speaker notes and next-slide preview.
+- **Timing:** Use a phone timer or the browser DevTools console for minute markers.
+- **Remote clicker:** Standard presentation remotes work with Marp HTML exports. Arrow keys advance slides.
+- **Font loading:** If presenting offline, download Red Hat Display, Red Hat Text, and Red Hat Mono from Google Fonts and install locally.
+- **Aspect ratio:** Marp defaults to 16:9. Stick with 16:9 unless the venue specifically requires 4:3.
+- **PDF quality:** For highest quality PDF output, use `marp --pdf --pdf-notes --allow-local-files deck.md`.
