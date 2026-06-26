@@ -1,4 +1,4 @@
-Distill a long document into a presentation outline.
+Distill a long document into a presentation outline. Distillation is destruction. A great talk built from a document keeps 20% of the content and 100% of the impact. If you are not cutting ruthlessly, you are making a document reading, not a presentation.
 
 The user will provide a document (blog post, design doc, paper, RFC, or similar). Use the following input: $ARGUMENTS
 
@@ -9,47 +9,73 @@ Optionally, the user can append target audience and time length after a `|` sepa
 
 If audience and time are not specified, infer a reasonable audience from the document content and default to a 20-minute talk.
 
-## Instructions
+## Step 1: Chain of Thought (Before You Touch a Single Slide)
 
-Read the full document and extract a presentation outline from it. The goal is distillation, not summarization. A good slide deck built from a document highlights the most important ideas and cuts everything else.
+Work through these questions explicitly. Write out your answers. This is where the editorial judgment happens.
 
-### Step 1: Analyze the Document
+1. **What is the ONE thing this document argues?** State it in a single sentence. If you cannot, the document argues multiple things and you need to pick the strongest one.
+2. **If you could only keep 3 paragraphs from the entire document, which ones?** Name them specifically. These are your load-bearing walls.
+3. **What is the best story, example, or data point buried in here?** The thing a reader might skim past but an audience would remember. Find it.
+4. **What does a live audience need that a reader does not?** Context they will not have read beforehand. Energy and pacing. Visual anchors. Moments of interaction. Identify what you must add.
+5. **What is the document's structure optimized for reading that will FAIL on stage?** Long buildups before the payoff. Hedged conclusions. Sections that exist for completeness, not persuasion. Name them.
 
-Before building slides, identify:
+## Step 2: Document Surgery Report
 
-1. **Core thesis:** What is the single most important point this document makes? State it in one sentence.
-2. **Key supporting points:** What are the 3-5 ideas that support the thesis? These become the backbone of the talk.
-3. **Best examples and data:** Which specific examples, metrics, or stories from the document would land well in a live presentation?
-4. **What to cut:** What parts of the document are important for a written piece but do not work on stage? (Background sections, literature reviews, implementation minutiae, caveats that break flow.)
+Before building the outline, show the user exactly what you are keeping and why. This is the accountability layer.
 
-Output this analysis first so the user can see the editorial decisions before the full outline.
+### KEPT
+Material that made the cut. For each item, state why it earns a place in the talk (compelling data, strong narrative, audience relevance).
 
-### Step 2: Build the Outline
+### CUT
+Material that did not make it. For each item, state why (too granular, breaks flow, only matters in written context, duplicates another point).
 
-Structure the presentation using the key points from Step 1. Follow these rules:
+### TRANSFORMED
+Material that changed form to work on stage. Examples:
+- Paragraph of analysis becomes a single compelling data point
+- Methodology section becomes a "here is what we tried" story
+- Literature review becomes a "the landscape looks like this" single slide
+- Table of results becomes a visual comparison
+- Hedged conclusion becomes a direct assertion
 
-1. **No more than 4 bullet points per slide.** The document probably has paragraphs of detail. Compress ruthlessly.
-2. **Each bullet point should be under 12 words.**
-3. **One idea per slide.**
-4. **Preserve the document's best quotes, stats, and examples.** These are the gems. Put them on slides where they will have impact.
-5. **Do not follow the document's structure literally.** A blog post or paper is organized for reading. A talk is organized for listening. Reorder for narrative flow.
-6. **Front-load the value.** The audience should know the main point within the first 2 minutes, then the rest of the talk provides evidence and depth.
-
-### Step 3: Flag Gaps
-
-Note anything the presentation needs that the document does not provide:
+### MISSING
+Things the talk needs that the document does not provide:
 - A hook or opening story
 - A demo or live example
 - Visual assets (diagrams, screenshots, architecture drawings)
-- Audience-specific framing that the document was not written for
+- Audience-specific framing the document was not written for
+- Transitions between ideas that the document handles with section breaks
+
+## Step 3: Build the Outline
+
+### Transformation Rules
+
+Follow these. They override your instinct to be faithful to the source material.
+
+1. **Do NOT follow the document's section order.** Reading order is not presenting order. Reorganize for narrative impact.
+2. **Lead with the conclusion, not the introduction.** The audience should know the main point within the first 2 minutes. The rest of the talk provides evidence and depth.
+3. **Convert paragraphs of analysis into single compelling data points.** If a section takes 500 words to argue something, find the one stat or example that makes the case and put that on the slide.
+4. **Turn methodology sections into "here is what we tried" stories.** Process is boring. Discovery is interesting. Frame it as a journey.
+5. **Transform literature reviews into "the landscape looks like this" single slides.** One slide, one visual, one framing sentence. That is all the audience needs.
+6. **Pull the best quote from the document and make it a full-bleed slide.** Every document has one line that captures the whole argument. Find it.
+7. **No more than 4 bullet points per slide.** Compress ruthlessly.
+8. **Each bullet point should be under 12 words.**
+9. **One idea per slide.**
+
+### Anti-Patterns (Do Not Do These)
+
+- No slides that are just section headers copied from the document
+- No "as stated in the paper" framing (the audience is here for your interpretation, not a book report)
+- No trying to cover everything (that is what the link to the full doc is for)
+- No preserving the document's hedging language on stage ("results suggest" becomes "we found")
+- No walls of text carried over from the source material
 
 ## Output Format
 
-### Document Analysis
-- **Core thesis:** [one sentence]
-- **Key supporting points:** [bulleted list of 3-5 points]
-- **Best material for slides:** [specific quotes, stats, or examples to feature]
-- **Recommended cuts:** [what to leave out of the talk]
+### Chain of Thought
+Your answers to the five questions from Step 1. Be specific, reference sections of the document by name.
+
+### Document Surgery Report
+The KEPT / CUT / TRANSFORMED / MISSING breakdown from Step 2.
 
 ### Title Slide
 - Title (adapted for a live audience, not just the document title)
@@ -60,20 +86,28 @@ Note anything the presentation needs that the document does not provide:
 For each slide:
 - **Slide N: [Title]** (timing: X minutes)
 - 2-4 bullet points (what appears ON the slide)
-- **Speaker Notes:** Conversational talking points. Reference where in the document this content comes from so the presenter can review the full context. Include transition phrases between slides.
-- **Visual suggestion:** Describe a diagram or image. If the document includes figures, reference them.
+- **Speaker Notes:** Conversational talking points. Reference where in the document this content comes from so the presenter can review the full context. Include transition language between slides.
+- **Visual suggestion:** Describe a diagram, image, or layout. If the document includes figures, reference them. For quote slides, specify full-bleed layout with attribution.
 - **Source:** Note the section or page of the original document this slide draws from.
 
 ### Closing Slide
 - Key takeaway (one sentence)
 - Call to action
-- Link to the full document for audience members who want to go deeper
+- Link to the full document for audience members who want depth
 
 ### Q&A Preparation
-5-7 anticipated questions. Draw from details in the document that were cut from the slides but might come up in discussion.
+5-7 anticipated questions. Draw from details in the document that were cut from the slides but might come up in discussion. For each question, note which section of the document contains the answer.
 
 ### Pacing Summary
 A table showing slide number, title, and time allocation. Verify the times add up to the total time. Flag any slide over 3 minutes.
 
 ### Gaps and Recommendations
 List anything the presenter needs to prepare that is not in the document.
+
+## Self-Critique (Run This Before Delivering)
+
+Before you present your outline to the user, answer these three questions honestly. If any answer is "no," revise the outline before delivering it.
+
+1. **Could someone who already read the document say "I learned something new from the talk"?** The presentation must add value beyond the document: framing, stories, urgency, a point of view the document only implies.
+2. **Does the presentation stand on its own?** If the audience never reads the document, do they still walk away with a clear, actionable understanding?
+3. **Napkin test:** Can you write the talk's thesis on a napkin? If the thesis takes more than one sentence, the outline is trying to do too much. Cut further.

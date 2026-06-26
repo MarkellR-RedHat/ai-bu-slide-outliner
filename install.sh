@@ -6,28 +6,43 @@ set -e
 COMMANDS_DIR="$HOME/.claude/commands"
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
-echo "Installing slide outliner commands..."
+GREEN='\033[0;32m'
+CYAN='\033[0;36m'
+BOLD='\033[1m'
+NC='\033[0m'
+
+echo ""
+echo -e "${BOLD}Slide Outliner${NC}"
+echo "Presentation outlines, speaker notes, and visual suggestions"
+echo ""
 
 mkdir -p "$COMMANDS_DIR"
 
-cp "$SCRIPT_DIR/commands/slides.md" "$COMMANDS_DIR/slides.md"
-cp "$SCRIPT_DIR/commands/slide-notes.md" "$COMMANDS_DIR/slide-notes.md"
-cp "$SCRIPT_DIR/commands/slide-review.md" "$COMMANDS_DIR/slide-review.md"
-cp "$SCRIPT_DIR/commands/slide-to-marp.md" "$COMMANDS_DIR/slide-to-marp.md"
-cp "$SCRIPT_DIR/commands/slide-story.md" "$COMMANDS_DIR/slide-story.md"
-cp "$SCRIPT_DIR/commands/slide-from-doc.md" "$COMMANDS_DIR/slide-from-doc.md"
+for cmd in "$SCRIPT_DIR"/commands/*.md; do
+  cp "$cmd" "$COMMANDS_DIR/$(basename "$cmd")"
+  echo -e "  ${GREEN}+${NC} /$(basename "$cmd" .md)"
+done
 
-echo "Installed commands:"
-echo "  /slides         - Generate a full presentation outline with speaker notes"
-echo "  /slide-notes    - Generate speaker notes for an existing outline"
-echo "  /slide-review   - Review a presentation outline for flow and pacing"
-echo "  /slide-to-marp  - Convert an outline to Marp markdown format"
-echo "  /slide-story    - Build a narrative-driven presentation (situation, complication, resolution)"
-echo "  /slide-from-doc - Distill a long document into a slide deck outline"
 echo ""
-echo "Templates available in templates/ directory:"
-echo "  technical-deep-dive.md  - 30-40 min technical talk structure"
-echo "  lightning-talk.md       - 5 min lightning talk structure"
-echo "  executive-update.md     - 15 min leadership update structure"
+echo -e "${CYAN}Core commands:${NC}"
+echo "  /slides         - Generate a full presentation outline"
+echo "  /slide-notes    - Speaker notes for an existing outline"
+echo "  /slide-review   - Review flow, pacing, and slide design"
+echo "  /slide-story    - Narrative-driven presentation"
+echo "  /slide-from-doc - Distill a document into slides"
+echo "  /slide-to-marp  - Convert to Marp markdown"
 echo ""
-echo "Done. Restart Claude Code to pick up the new commands."
+echo -e "${CYAN}Advanced commands:${NC}"
+echo "  /slide-pacing   - Timing analysis with checkpoint markers"
+echo "  /slide-visuals  - Visual treatment suggestions per slide"
+echo "  /slide-hooks    - 5 alternative opening sequences"
+echo ""
+echo -e "${CYAN}Templates:${NC}"
+echo "  technical-deep-dive.md  - 30-40 min technical talk"
+echo "  lightning-talk.md       - 5 min lightning talk"
+echo "  executive-update.md     - 15 min leadership update"
+echo "  demo-heavy-talk.md      - 60% demo format"
+echo "  panel-prep.md           - Panel preparation"
+echo "  ignite-talk.md          - 20 slides, 15s each"
+echo ""
+echo -e "${GREEN}Done.${NC} Restart Claude Code to use the new commands."
