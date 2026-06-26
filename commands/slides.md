@@ -58,9 +58,71 @@ Follow these rules for every slide, no exceptions:
 
 ### Calibration
 
-**Bad slide:** Title "Architecture Overview" with 8 bullet points listing every component in the system. The audience reads ahead, zones out, and retains nothing.
+Learn the difference between slides that work and slides that waste everyone's time.
 
-**Good slide:** Title "Why three services instead of one" with a single architecture diagram and no bullets. The title makes a claim. The diagram proves it. The speaker tells the story.
+#### Slide Titles
+
+A bad title describes a topic. A good title makes a claim or asks a question the audience wants answered.
+
+| Bad | Good | Why |
+|-----|------|-----|
+| "Architecture Overview" | "Why three services instead of one" | Makes a promise. The audience leans in to hear the answer. |
+| "Performance Results" | "We cut p99 latency from 800ms to 40ms" | The result IS the title. No suspense wasted on a label. |
+| "Kubernetes Operators" | "Your operators are doing too much" | Takes a position. The audience either agrees or wants to argue. Both mean they are paying attention. |
+| "Project Update" | "We shipped three months early. Here is what we skipped." | Specificity creates curiosity. "Project Update" creates naptime. |
+
+#### Speaker Notes
+
+Bad speaker notes are scripts. Good speaker notes are cue cards for someone who already knows the material.
+
+**Bad notes:**
+> "In this slide, we will discuss the architecture of our system. The system is composed of three microservices: the API gateway, the processing engine, and the storage layer. The API gateway handles incoming requests and routes them to the appropriate service. The processing engine..."
+
+This is a teleprompter. If you are reading this aloud, you are not presenting. You are narrating a document.
+
+**Good notes:**
+> - Tell the 3am pager story: what broke, why monolith couldn't handle it
+> - 50 req/s was the wall. Show the graph.
+> - [BUILD TENSION] "So we had a choice..."
+> - Transition: "That decision is why the architecture looks the way it does today."
+
+Three lines that jog your memory. One emotional beat. One transition. That is all a prepared speaker needs.
+
+**Bad notes (different failure mode):**
+> "Key points: microservices, scalability, reliability, observability"
+
+This is a keyword dump. It tells you nothing about what to actually say or what story to tell.
+
+**Good notes:**
+> - The "reliability" claim only works if you show the incident timeline first
+> - Drop the exact SLO numbers: 99.95% target, 99.97% actual over 6 months
+> - [LAND THE PUNCHLINE] "And we did it with a team of four."
+
+#### Opening Slides
+
+**Bad opening:** Title slide, then "Agenda" slide listing 6 topics, then "About Me" slide with a headshot and job history. Three slides in and the audience has learned nothing. They are already checking email.
+
+**Good opening:** Title slide, then immediately into the hook. "Last March, our deploy pipeline took 47 minutes. By September, it took 90 seconds. This talk is about the three decisions that made that happen." The audience now has a reason to stay. Your credibility comes from the story, not from a slide listing your job titles.
+
+#### Closing Slides
+
+**Bad closing:** "Thank You!" with a generic stock photo and your email in small font. The audience claps out of obligation. Nobody remembers what the talk was about.
+
+**Good closing:** Restate the one message. Give one specific action: "Open this URL on your phone right now. Star the repo. File the first issue. That is how this gets better." Then call back to your opening. If you opened with a 47-minute deploy, close with: "47 minutes to 90 seconds. You can do this too. Here is where to start." The last slide is the last thing they see. Make it count.
+
+#### Full Slide (Outline Entry)
+
+**Bad:**
+```
+Slide 3: Architecture Overview - Discuss the system architecture and its components
+```
+This tells the speaker nothing useful. "Discuss" is not a plan. "Components" is not a story. This slide will turn into a wall of bullets every time.
+
+**Good:**
+```
+Slide 3: 'Why three services instead of one' - Single diagram showing request flow. Speaker note: Tell the story of the 3am incident that proved monolith wouldn't scale past 50 req/s
+```
+The title makes a claim. The visual proves it. The speaker note gives you the story to tell. Every part has a job.
 
 ## Hard Anti-Patterns (Never Do These)
 
@@ -82,7 +144,7 @@ Speaker notes are cue cards for a confident presenter. Follow these rules:
 
 - **2-3 punchy reminder phrases**, not full sentences to be read aloud. Think: the words that jog your memory, not the words you say.
 - **One concrete example, stat, or anecdote per slide.** The note should remind you what story to tell, not tell it for you.
-- **Emotional beat markers.** Tag notes with stage directions where appropriate:
+- **Emotional beat markers.** Tag notes with stage directions. These tell you HOW to deliver, not just WHAT to say:
   - `[BUILD TENSION]` before a problem statement or escalation
   - `[LAND THE PUNCHLINE]` before the reveal, demo result, or key insight
   - `[LET IT BREATHE]` after a big moment; pause, let the audience absorb
@@ -150,7 +212,7 @@ For each content slide:
 
 - **Slide N: [Title]** (timing: X minutes)
 - 2-4 bullet points maximum (what appears ON the slide; each under 12 words)
-- **Speaker Notes:** 2-3 cue phrases (not full sentences). One concrete example or stat. Emotional beat marker if appropriate. Transition hook into the next slide.
+- **Speaker Notes:** 2-3 cue phrases (not full sentences). One concrete example or stat. Emotional beat marker. Transition hook into the next slide.
 - **Visual suggestion:** Specific description of a diagram, screenshot, chart, or image. State what it should show, where it sits on the slide, and why it matters.
 
 Mark one slide as **[SIGNATURE SLIDE]** in the outline.
@@ -169,7 +231,7 @@ List 5-7 anticipated questions the audience is likely to ask, along with concise
 - A direct, confident answer (2-3 sentences)
 - One follow-up data point or example to reinforce the answer
 
-Tailor these to the audience's experience level and likely skepticism points.
+Match these to what the audience actually knows and where they will push back.
 
 ### Pacing Summary
 A table showing slide number, title, time allocation, and energy level (high/medium/low). Verify the times add up to the total time requested. Flag any slide that runs over 3 minutes as a candidate for splitting. Note where the tension/release rhythm falls.
@@ -193,7 +255,7 @@ Before outputting the final outline, verify every item on this list. If any chec
 
 ## Final Guidelines
 
-- Write for the specific audience. A talk for executives looks different from a talk for developers. Adjust vocabulary, depth, and examples accordingly.
+- Write for the specific audience. A talk for executives looks nothing like a talk for developers. Match the vocabulary, depth, and examples to the room you are in.
 - Front-load the value. The audience should know why they care within the first 90 seconds.
 - Red Hat engineering voice: direct, technically credible, practical. No corporate fluff, no buzzword overload, no hedging language. Say what you mean.
 - When in doubt, cut. A tight 15-minute talk beats a rambling 20-minute one every time.

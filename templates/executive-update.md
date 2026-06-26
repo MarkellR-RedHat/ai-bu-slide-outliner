@@ -83,11 +83,35 @@ Use this template when you are presenting to leadership. Executives have limited
 
 ## Tips for Executive Updates
 
-- **Finish early.** A 15-minute slot means you present for 10 and leave 5 for questions. Executives will fill the remaining time with the questions they actually care about.
-- **Lead with the answer, not the journey.** Do not build up to the punchline. State it first, then support it.
-- **Data on every content slide.** Assertions without numbers do not land with this audience.
-- **Avoid jargon.** If a term needs a glossary entry, use a different word.
-- **Know your ask before you start building slides.** Every executive update should answer: "What do you need from us?"
-- **Prepare for the redirect.** Executives will often steer the conversation to what they care about, which may not be what you planned. Have backup slides and be ready to jump to them.
-- **No surprises.** If there is bad news, the executive's manager should have heard it before the meeting. The update confirms what they already know.
+- **Finish early.** Present for 10 minutes, not 15. Executives will fill the rest with the questions they actually care about. Let them.
+- **Lead with the answer, not the journey.** State the conclusion first. Then support it. Do not build suspense; they do not want a mystery novel.
+- **Data on every content slide.** Assertions without numbers get ignored. "We are making good progress" means nothing. "78% complete, on track for July 15" means something.
+- **Kill the jargon.** If a term needs a glossary entry, use a different word. Every acronym is a speed bump.
+- **Know your ask before you open your slide editor.** If you cannot finish the sentence "I need leadership to..." then you are not ready to build the deck.
+- **Prepare for the redirect.** They will steer toward what they care about, not what you planned. Have backup slides and know how to jump to them without fumbling.
+- **No surprises.** Bad news should reach their inbox before your slides reach the projector.
 - **The 3-slide test:** If you could only show slides 1, 2, and 6, would leadership have what they need? If yes, the rest is supporting detail. If no, restructure.
+
+---
+
+## Calibration: What Good Looks Like
+
+**Bad exec slide:**
+
+> **Progress Update**
+> - Made progress on migration
+> - Working through remaining issues
+> - Team is heads down on delivery
+> - Will provide update next quarter
+
+Every bullet here could apply to any project in the company. Leadership learns nothing. They lose trust because it looks like you are hiding behind vague language.
+
+**Good exec slide:**
+
+> **Migration: 78% complete. On track for July 15.**
+> [Progress bar: 78% filled, green status]
+> - 312 of 400 services migrated (up from 260 last month)
+> - 3 blockers remain: auth service (fix shipping June 30), data pipeline (owner: SRE team), legacy API (decision needed from this group)
+> - Ask: approve deprecation of legacy API by July 1
+
+Specific numbers. Clear status. One ask with a date. The exec can make a decision in 30 seconds.

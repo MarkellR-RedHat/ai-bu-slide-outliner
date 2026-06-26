@@ -137,6 +137,18 @@ Follow these rules for every slide:
 
 **Good slide:** Title "The night everything broke" with a single screenshot of a Slack channel on fire. The speaker tells the story. The slide sets the mood.
 
+**Bad story slide:** Title "Our Migration Journey" with four bullets: "Evaluated options," "Built prototype," "Rolled out gradually," "Achieved results." This is a timeline disguised as a story. There are no characters, no tension, no reason to care.
+
+**Good story slide:** Title "The mass-migration bet nobody wanted to make" with a single photo of a whiteboard covered in crossed-out approaches. Speaker note: "Tell them about the Friday standup where the team voted 6-to-1 against this plan, and why you overruled it." The slide has one image and one story. The audience leans in because something was at stake.
+
+**Bad Act 2 complication slide:** Title "Challenges We Faced" with bullets: "Scaling issues," "Team alignment," "Technical debt." These are category labels, not complications. They tell the audience nothing happened.
+
+**Good Act 2 complication slide:** Title "Then the load test hit 10x and everything fell apart" with a single dashboard screenshot showing response times spiking from 200ms to 14 seconds. Speaker note: "Walk through the 47 minutes between the first alert and the decision to kill the rollout. Name the people in the room. Describe what the Grafana dashboard looked like at minute 30." The stakes are concrete. The audience feels the weight because the details are real.
+
+**Bad emotional arc example:** The tension line is flat. Act 1 sets up the problem, Act 2 presents a solution, Act 3 shows results. There is no struggle, no setback, no moment where the outcome was uncertain. The audience checks out because they can see the ending coming from slide 3.
+
+**Good emotional arc example:** Act 1 establishes a world the audience recognizes. Act 2 introduces a complication that makes things worse before they get better: a failed first attempt, an internal disagreement, a deadline that moved up by six weeks. The tension peaks at the moment of highest uncertainty, then Act 3 delivers the resolution with honest tradeoffs. The audience stays engaged because the outcome was genuinely in doubt.
+
 ## Speaker Notes for Story Presentations
 
 Speaker notes for narrative presentations should say "Tell the story about the 3 AM incident" not reproduce the entire story. The presenter knows the story. They need reminders, not a teleprompter.

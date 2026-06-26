@@ -71,3 +71,26 @@ Use this template when you have 5 minutes to make one point and make it stick. N
 - **Speak faster than you think you should.** Lightning talk pacing feels rushed in rehearsal but sounds energetic on stage.
 - **End on time or early.** Finishing at 4:30 is a power move. Going to 5:30 is rude.
 - **The single test:** After your talk, can an audience member turn to their neighbor and explain your point in one sentence? If not, simplify.
+
+---
+
+## Calibration: What Good Looks Like
+
+**Bad lightning talk slide:**
+
+> **Overview of Container Orchestration Approaches**
+> - Kubernetes vs. Docker Swarm vs. Nomad
+> - Scheduling strategies and resource allocation
+> - Network policy considerations
+> - Storage provisioner comparison
+> - Monitoring and observability integration
+
+This is a table of contents for a 45-minute talk crammed into one slide. The audience reads the bullets, stops listening, and checks their phone.
+
+**Good lightning talk slide:**
+
+> **"Your YAML is lying to you"**
+> [Screenshot: a deployment manifest showing `replicas: 3` next to `kubectl get pods` showing 1 running, 2 in CrashLoopBackOff]
+> One stat: "83% of outages we investigated traced back to config drift"
+
+One claim. One visual that proves it. The audience gets it in 3 seconds and wants to hear what you say next.

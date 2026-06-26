@@ -21,6 +21,40 @@ An outline is a plan. A Marp deck is a performance tool. During the conversion, 
 
 **Good slide in Marp:** A claim in the title, a diagram taking up 60% of the slide, 2 bullets of supporting evidence, and a 2-line speaker note that says what story to tell.
 
+**Bad Marp output (wall of text, no visual directives):**
+```markdown
+## How We Improved Inference Performance
+
+- We evaluated several different scheduling strategies for our inference workloads
+- After testing round-robin, least-connections, and batched scheduling approaches
+- We found that batched scheduling provided significantly better throughput
+- The improvement was measured across multiple model sizes and request patterns
+- Our team then rolled this out across all production clusters over two weeks
+- Key metrics improved including latency, throughput, and GPU utilization
+
+<!-- Speaker notes: Talk about the scheduling evaluation process. Explain how the team tested each strategy. Mention the rollout timeline and the metrics that improved. Discuss challenges encountered during the rollout and how they were resolved. Reference the internal doc for additional context on the benchmarking methodology. -->
+```
+Six bullets averaging 14 words each. No image directive. No background. Speaker notes are a paragraph that the presenter will either read verbatim or ignore entirely. The slide competes with the speaker instead of supporting them.
+
+**Good Marp output (clean slide with visual, tight content, speaker note cue):**
+```markdown
+## Batched scheduling changed everything
+
+![bg right:45% opacity:0.9](https://images.unsplash.com/photo-PLACEHOLDER?w=1200)
+<!-- Replace: GPU server rack with visible status LEDs, close-up angle -->
+<!-- Search terms: "server rack LEDs close up", "data center hardware detail" -->
+
+- **47x throughput** on identical hardware
+- Same GPUs, same models, different scheduler
+
+<!--
+CUE: Tell the "aha moment" story from the benchmark review
+TRANSITION: "So the numbers were clear. The hard part was the rollout."
+TIMING: ~2 minutes
+-->
+```
+Two bullets, each under 8 words. Background image takes 45% of the slide and sets context visually. Speaker notes are three lines: a story cue, a transition sentence, and a timing target. The presenter knows exactly what to say and when to move on.
+
 ## Instructions
 
 Transform the provided outline into valid Marp markdown. The output must be copy-paste ready: renderable with Marp CLI or Marp VS Code extension with zero edits beyond swapping in real images.

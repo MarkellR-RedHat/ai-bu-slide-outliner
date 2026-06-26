@@ -24,6 +24,15 @@ Practice this to exactly 90 seconds. You will be cut off at 2 minutes.
 
 ## Core Talking Points (3-5 points)
 
+Here is what a filled-in talking point looks like. This is the quality bar.
+
+> ### Example: Talking Point (filled in)
+> - **The point in one sentence:** Fine-tuning open models beats proprietary APIs for latency-sensitive inference at scale.
+> - **Supporting evidence or anecdote (15 seconds):** "We ran the same summarization workload on a hosted API and on a fine-tuned Llama 3 model on our own GPUs. The fine-tuned model hit p99 latency of 180ms. The API averaged 1.2 seconds and spiked to 4 seconds under load."
+> - **Quotable version (tweet-length):** "If your p99 latency matters, you cannot outsource your inference."
+> - **Counter-argument you anticipate:** "Hosted APIs are improving fast and you avoid operational burden."
+> - **Your response to that counter-argument:** "Operational burden is real, but tail latency is a physics problem. The network hop to someone else's data center has a floor. For use cases where latency is not critical, hosted APIs are fine. For ours, they are not."
+
 ### Point 1
 - **The point in one sentence:**
 - **Supporting evidence or anecdote (15 seconds):**

@@ -4,7 +4,7 @@ Your talk is in two weeks. You have 47 slides and no idea which ones to cut. You
 
 This is fixable.
 
-These Claude Code commands act as a presentation coach. They will not just generate slides for you. They will force you to find the ONE message your talk is building toward, cut everything that does not serve it, and replace your teleprompter scripts with cue cards that let you actually look at the audience.
+These are Claude Code commands that coach you through building a talk. They will not generate slides for you. They will force you to find the ONE message your talk is building toward, cut everything that does not serve it, and replace your teleprompter scripts with cue cards that let you actually look at the audience.
 
 ## Before and After
 
@@ -35,9 +35,9 @@ Slide 21: Thank You
 Slide 22: Questions?
 ```
 
-Speaker notes: 3-paragraph scripts per slide. The presenter reads them word for word.
+Speaker notes: 3-paragraph scripts per slide. The presenter reads them word for word and never looks up.
 
-**After:** The same talk, tightened to 14 slides with one clear message
+**After:** The same talk, 14 slides, one argument
 
 ```
 ONE MESSAGE: "Disaggregated serving doubles GPU utilization
@@ -201,7 +201,7 @@ This copies the commands to `~/.claude/commands/`. Restart Claude Code to pick t
 
 ## Contributing
 
-Open an issue or submit a PR if you have ideas for improving the prompts, adding new commands, or contributing templates.
+Open an issue or PR. If a command gave you bad advice, tell us what it said and why it was wrong. If you have a template for a format we do not cover, send it.
 
 ## License
 

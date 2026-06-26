@@ -208,6 +208,21 @@ This is the hardest format in public speaking. You cannot pause, you cannot go b
 - High-contrast visuals that read from the back of the room
 - Dark backgrounds with light text, or bold images with minimal overlay
 
+**Bad ignite slide:**
+> **Benefits of Observability**
+> - Improved mean time to detection
+> - Better understanding of system behavior
+> - Reduced operational toil
+> - Enhanced collaboration between teams
+
+The audience has 15 seconds. They cannot read four bullets, process them, and listen to you at the same time. They do none of the three.
+
+**Good ignite slide:**
+> [Full-screen image: a Grafana dashboard showing a flat green line that suddenly spikes red]
+> One line of text at the bottom: "This spike cost us $140,000."
+
+One image. One line. The audience gets it instantly and your narration adds the context.
+
 ### Practice
 - Practice with a 15-second timer until you can hit every transition without thinking
 - Record yourself and watch it. You will talk faster than you think.

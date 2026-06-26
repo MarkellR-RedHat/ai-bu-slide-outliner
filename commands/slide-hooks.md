@@ -12,6 +12,32 @@ The audience walks into your talk with their phone in their hand and a dozen oth
 
 An agenda slide answers the question "What will you cover?" but nobody was asking that question. They were asking "Why should I care?" Lead with the answer to the question they are actually asking.
 
+### Calibration
+
+**Bad opening (generic intro):** "Today I am going to talk about Kubernetes operators and how they can help your platform team."
+This tells the audience what the topic is. It does not give them a reason to listen. They already read the session title in the program. You have wasted your first sentence restating information they already have.
+
+**Good opening (specific outcome):** "Last quarter, our platform team mass-migrated 340 services in one weekend. Zero downtime. Here is the operator that made it possible."
+This leads with a result that sounds almost implausible. The audience immediately wants to know how. The topic (operators) is the same, but now the audience has a reason to care about it.
+
+**Bad stat hook:** "AI adoption is growing rapidly across the enterprise."
+This is a headline, not a hook. It is vague, unsurprising, and gives the audience nothing to react to. "Growing rapidly" is not a number.
+
+**Good stat hook:** "We surveyed 1,200 platform engineers. 73% said they run models in production. When we asked how many had a GPU scheduling strategy, it dropped to 11%. That gap is costing real money."
+The contrast between two specific numbers creates tension. The audience does the math in their head. They feel the gap before you explain it.
+
+**Bad failure story hook:** "We had some challenges early on with our deployment pipeline."
+"Some challenges" is the vaguest possible way to describe a failure. There is no scene, no consequence, no human being in the story. The audience has no reason to feel anything.
+
+**Good failure story hook:** "Two months into production, our inference service started dropping 1 in 50 requests. We did not notice for three weeks. Our users noticed on day one."
+This is specific: a ratio, a timeline, and a gap between what the team knew and what users experienced. The audience winces because they have been on one side or the other of that gap.
+
+**Bad provocative question hook:** "What if everything you know about scaling is wrong?"
+This is too broad to be provocative. It sounds like a clickbait headline. The audience rolls their eyes because the talk cannot possibly deliver on a claim that sweeping.
+
+**Good provocative question hook:** "Raise your hand if your team has a GPU utilization target. Now keep your hand up if you are actually measuring it at the pod level, not the node level. Most teams are optimizing a number they are not even collecting correctly."
+This starts with participation, then narrows with a specific technical distinction. The hand-drop moment creates visible proof of the knowledge gap. The audience is now curious whether they are measuring it wrong too.
+
 Generate 5 openings using these techniques:
 
 ---

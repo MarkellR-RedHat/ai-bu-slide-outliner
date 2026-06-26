@@ -98,16 +98,19 @@ Use this template when the audience wants to understand HOW something works, not
 - QR code for the lazy
 - How to contribute if it is open source
 
-**Slide 19: Q&A** (remaining time)
-- "Questions?" slide with contact info
+**Slide 19: Start Here** (remaining time)
+- Restate the key takeaway in one sentence. This is the last thing they see.
+- Clear call to action: "Clone the repo," "Join the SIG," "File an issue"
+- Your name, contact info, QR code to the repo or docs
 - Have 2-3 backup slides for anticipated deep questions
+- Do NOT put "Questions?" on the screen. Just say "I will take questions" and leave this slide up.
 
 ---
 
 ## Tips for Technical Deep Dives
 
-- Rehearse the demo at least 3 times. Have a fallback plan.
-- Do not explain every box on the architecture diagram. Focus on what is interesting.
-- If you say "I will skip this for time," you should have cut the slide.
-- Technical audiences respect honesty about limitations more than polished marketing.
-- Time your talk at 32-35 minutes to leave room for questions that come up mid-talk.
+- Rehearse the demo at least 3 times. Have a fallback plan. No exceptions.
+- Do not explain every box on the architecture diagram. Point at the interesting part and talk about that.
+- If you say "I will skip this for time," you already failed. Cut the slide before you get on stage.
+- Technical audiences smell marketing from across the room. Show limitations, show tradeoffs, show what broke. That is what earns trust.
+- Time your talk at 32-35 minutes. Questions will come mid-talk whether you plan for them or not. Leave room.

@@ -12,6 +12,24 @@ Running out of time is the most common talk failure, but it is not the only paci
 
 Your analysis must address both: will this talk fit in the time slot, AND will the audience still be engaged when the speaker reaches the important parts?
 
+### Calibration
+
+**Bad pacing analysis:** "Slide 7 might be a bit long. Consider shortening it."
+This is useless. It does not say why it is too long, what effect the length has on the audience, or what to do about it. "Consider" is a hedge. "Might be" is a hedge on top of a hedge. The presenter learns nothing actionable.
+
+**Good pacing analysis:** "Slides 7-9 stack three architecture diagrams back to back. By slide 9 the audience has been processing dense visuals for 8 minutes straight. Insert a 'show of hands' interaction after slide 8, then cut slide 9 entirely -- its content is already covered in slide 7's diagram with the service mesh layer visible."
+This names the specific slides, explains the cumulative effect on the audience, and prescribes two concrete fixes with reasoning for each.
+
+**Bad energy assessment:** "The middle section feels heavy."
+"Feels heavy" is not a diagnosis. Which slides? Heavy how? What is the audience experiencing? This gives the presenter a vague sense that something is wrong without any way to fix it.
+
+**Good energy assessment:** "Slides 11 through 15 are all high-density: two code walkthroughs, a performance comparison table, a capacity planning formula, and a config deep-dive. That is 12 minutes of sustained cognitive load with no recovery. Move the capacity planning formula to an appendix slide (it is reference material, not narrative). After slide 12, insert a 60-second story about the first time a team actually used this config in production. That breaks the density streak and gives the audience a concrete example to anchor the abstractions."
+
+**Bad cut recommendation:** "You may want to consider removing some slides to fit the time."
+This says nothing. Which slides? Why those slides? The presenter is no closer to a decision after reading this.
+
+**Good cut recommendation:** "Cut slide 14 (the API versioning comparison). It is a supporting detail for the point you already made on slide 12 with stronger evidence. If you run long during delivery, skip slides 18-19 (the future roadmap) and jump straight to the closing. The audience will not miss the roadmap, but they will notice if you rush the demo on slide 16."
+
 ## 1. ESTIMATED TIME PER SLIDE
 
 For every slide in the outline, estimate the time it will take to deliver. Base your estimate on:

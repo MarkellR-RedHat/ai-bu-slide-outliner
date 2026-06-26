@@ -17,6 +17,20 @@ Before touching a single slide, identify the single sentence this entire talk is
 
 A document can argue five things. A talk can argue one. Pick the strongest one.
 
+### Calibration
+
+**Bad document-to-slide conversion:** The document has a 500-word section analyzing inference latency across three scheduling strategies. The slide copies five sentences from that section as bullet points, each 20 words long. The audience reads the slide in 15 seconds and then sits through 2 minutes of the presenter reading the same words back to them. This is a document reading, not a presentation.
+
+**Good document-to-slide conversion:** That same 500-word analysis section contains one killer data point: "Batched scheduling delivered 47x higher throughput than naive round-robin on the same hardware." The slide shows "47x" in 120pt type with a one-line subtitle: "Same GPUs. Same models. Different scheduler." The speaker tells the story of how the team discovered the difference. The audience remembers the number and the story. They can read the full analysis later.
+
+**Bad transformation:** The document has a methodology section with four paragraphs explaining how the team evaluated three approaches. The slides reproduce each paragraph as a separate slide with bullets. The audience gets a chronological walkthrough of process steps that feel like meeting notes.
+
+**Good transformation:** The methodology section becomes a single slide titled "We tried three approaches. Two failed." with a before/after comparison showing the failed approaches crossed out and the winning approach highlighted. The speaker tells the 90-second version of what went wrong with the first two. The audience learns from the failures, not the process.
+
+**Bad preservation of document structure:** The document has sections titled "Introduction," "Background," "Methodology," "Results," and "Conclusion." The slides follow the same order with the same section titles. This is a book report, not a talk.
+
+**Good restructuring for stage:** The talk opens with the conclusion (the strongest result), then backs into the problem it solved, shows the struggle to get there, and closes with what it means for the audience. The document's structure is optimized for a reader who will go front to back. The talk's structure is optimized for an audience that decides in the first 90 seconds whether to keep listening.
+
 ## Step 1: Chain of Thought (Before You Touch a Single Slide)
 
 Work through these questions explicitly. Write out your answers. This is where the editorial judgment happens.

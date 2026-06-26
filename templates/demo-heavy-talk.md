@@ -89,3 +89,15 @@ Talks where 60% of the time is live demos. High-risk, high-reward. The demos are
 
 ### The Three Demo Rule
 First demo hooks them, second demo teaches them, third demo proves resilience. If you only have time for two demos, cut the third. If you only have time for one, this is not a demo-heavy talk.
+
+### Calibration: Good Narration vs. Bad
+
+**Bad demo narration:**
+> "So now I am going to click on the deployment button. OK, and now it is deploying. So we can see it is deploying. And now I will wait for it to finish. OK, it is done."
+
+You are describing what the audience can already see. Nobody learns anything. The silence while you wait is painful.
+
+**Good demo narration:**
+> "Watch the pod count in the top right. When I trigger this rollout, the scheduler has to decide: do I drain the old pods first, or start the new ones alongside them? We configured a surge strategy, so you should see it spin up two new pods before it touches the old ones. There. See how traffic never dropped? That is the difference between a surge rollout and a recreate strategy."
+
+You are telling them what to watch, why it matters, and what to notice. The audience is learning, not just spectating.

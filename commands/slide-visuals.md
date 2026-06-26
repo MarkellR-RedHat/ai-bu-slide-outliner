@@ -19,6 +19,17 @@ A slide is not a document. It is a billboard that the audience sees for 60 to 12
 
 **Good slide:** Title "Why three services instead of one" with a single architecture diagram and no bullets. The title makes a claim. The diagram proves it. The speaker tells the story.
 
+**Bad visual recommendation:** "Consider adding a relevant image to this slide."
+This tells the presenter nothing. What image? What subject? What composition? Where on the slide? What size? The presenter spends 20 minutes searching stock photo sites with no direction and settles for a generic cloud icon. The slide is worse for having a visual that adds no meaning.
+
+**Good visual recommendation:** "Full-bleed photo of a server room corridor, shot from floor level for depth. Text overlay top-left: white 48pt Red Hat Display on 30% opacity dark gradient. Search: Unsplash 'data center corridor perspective', Pexels 'server room depth of field'. Avoid: generic cloud icons, stock photos of people pointing at screens, aerial shots of data centers that look like every other tech deck."
+This gives the presenter a composition, a camera angle, a typography spec, exact search terms for two stock photo sites, and a list of cliches to avoid. The presenter can find the right image in under 3 minutes.
+
+**Bad diagram suggestion:** "Add a diagram showing the system architecture."
+No layout guidance, no complexity constraints, no indication of what the diagram should emphasize. The presenter builds a 30-node diagram that is unreadable from row 5.
+
+**Good diagram suggestion:** "Architecture diagram with 4 nodes maximum: request gateway, router, model server pool, GPU scheduler. Horizontal left-to-right flow. Highlight the router-to-scheduler path in red -- that is the bottleneck this slide is about. Gray out everything else. Use Mermaid `graph LR` with subgraph labels for the hot path. If the audience cannot identify the bottleneck in 3 seconds, the diagram has too many nodes."
+
 For EACH slide in the outline, provide all of the following:
 
 ## VISUAL TYPE RECOMMENDATION
