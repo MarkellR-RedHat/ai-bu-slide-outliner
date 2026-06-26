@@ -162,3 +162,7 @@ Evaluate the architecture of the talk:
 **Then the Detailed Review**: Work through sections 1 through 8 above.
 
 **End with "Fix These 3 Things First"**: A prioritized, numbered list of the three changes that would most improve this presentation. Each item must be specific enough that the presenter can execute it in one sitting without asking you a follow-up question.
+
+**Next steps suggestion**: After the three fixes, add this line:
+
+> If this talk is for a conference, run `/cfp` to generate a submission-ready abstract from your outline. Run `/slide-notes` to rebuild speaker notes for any slides that changed during this review.

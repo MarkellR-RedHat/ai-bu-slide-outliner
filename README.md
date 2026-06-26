@@ -1,6 +1,8 @@
 # Slide Outliner
 
-**Your talk is too long and you know it.**
+Part of the [AI BU](https://github.com/MarkellR-RedHat/ai-bu-hub) tool suite.
+
+## Your talk is too long and you know it.
 
 You have 47 slides. Your speaker notes are three paragraphs per slide because you are afraid of forgetting something. Your opening slide says "Agenda." Your closing slide says "Questions?" You rehearse by reading your notes word for word and never looking up.
 
@@ -94,6 +96,17 @@ Then restart Claude Code and try:
 3. **Use `/slide-notes`** to replace paragraph scripts with cue-card notes.
 4. **Check `/slide-pacing`** to find energy dead zones and timing problems.
 5. **Try `/slide-hooks`** if your opening is weak.
+
+**The move that saves the most time:** Run `/slide-review` before you open your slide tool. Most people build all 30 slides, then realize half need to be cut. Running the review on a text outline takes two minutes. Rebuilding 15 slides in Keynote takes an afternoon.
+
+### Pairs with other AI BU tools
+
+| When you need to... | Use |
+|----------------------|-----|
+| Submit your talk to a conference | [`/cfp`](https://github.com/MarkellR-RedHat/ai-bu-cfp-generator) generates a submission-ready abstract from your outline |
+| Rehearse for a tough audience | [`/review-as-persona`](https://github.com/MarkellR-RedHat/ai-bu-review-as-persona) plays your VP, your skip-level, or a skeptical attendee |
+| Clean up your speaker notes | [`/style-check`](https://github.com/MarkellR-RedHat/ai-bu-style-checker) catches jargon, passive voice, and filler |
+| Share what you shipped after the talk | [`/shipped-digest`](https://github.com/MarkellR-RedHat/ai-bu-shipped-digest) turns your work into a team-facing summary |
 
 ### Command details
 

@@ -291,6 +291,8 @@ Before outputting the final outline, verify every item on this list. If any chec
 
 ## Next Step
 
-After delivering the outline, end with this suggestion on its own line:
+After delivering the outline, end with these suggestions:
 
 > Run `/slide-review` to get a brutal honesty check on this outline before you invest time polishing it.
+>
+> Submitting to a conference? Run `/cfp` to generate a submission-ready abstract from this outline.
