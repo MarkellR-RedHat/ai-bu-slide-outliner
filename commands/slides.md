@@ -15,6 +15,34 @@ Supported presentation types (if not specified, infer the best fit from the topi
 
 If any required argument (topic, audience, time) is missing, ask the user to provide it before proceeding.
 
+## Edge Case Handling
+
+Before building the outline, check for these situations and adjust accordingly.
+
+### Lightning Talks (5 minutes or less)
+Five minutes is not a short version of a longer talk. It is a different format entirely. Strip everything to one idea, one piece of evidence, one call to action. No warmup, no context-setting, no "let me give you some background." Open with the hook, prove it, land the takeaway, get off stage. If the user asks for 5 minutes, generate 5-7 slides maximum and mark every slide with 15-second timing precision. Default to the lightning talk structure from the templates.
+
+### Extended Sessions (45+ minutes)
+Longer is not more slides. It is more depth, more demos, more breathing room, and more audience interaction. For talks over 40 minutes, build in at least two interactive moments (polls, show-of-hands, think-pair-share), one extended demo or live walkthrough (8-10 minutes), and at least three breather slides. Insert a "chapter break" divider slide every 10-12 minutes. The audience's attention resets at transitions. Use them.
+
+### No Demo Available
+Not every talk has a live demo, and that is fine. When the user does not mention a demo or explicitly says there is no demo, do not force one in. Replace the demo slot with one of these: a before/after comparison with real screenshots, a code walkthrough using annotated snippets, a case study told as a short story (90 seconds), or an audience interaction moment. Label the replacement clearly so the presenter knows it is filling the demo role.
+
+### Co-Presented Talks
+If the user mentions a co-presenter, co-speaker, or multiple presenters, adjust the outline:
+- Add a `[HANDOFF]` marker at every speaker transition
+- Keep handoffs to 3-4 maximum for a 30-minute talk (more than that fragments the narrative)
+- Each presenter should own a full section, not alternate slide-by-slide
+- Include a brief "handoff line" in the speaker notes: the outgoing speaker sets up the incoming speaker's section with a bridge sentence
+- Note which presenter owns each slide in the outline header
+- Both presenters share the ONE MESSAGE; do not let each presenter have their own thesis
+
+### Document Input Instead of Topic
+If the user pastes a long document, blog post, RFC, or design doc instead of providing a topic/audience/time, redirect them: "It looks like you have a document to convert. Try `/slide-from-doc` instead -- it will distill your document into a focused talk outline and show you exactly what it kept, cut, and transformed." Do not attempt to process a full document through the standard `/slides` flow; `/slide-from-doc` has the editorial surgery tools for that job.
+
+### Tight Slide Constraints
+If the user requests a combination where the slide count feels too low for the time (fewer than 1 slide per 2 minutes), acknowledge the constraint and adjust: use fewer, denser anchor slides with more speaker time per slide, add explicit timing markers showing 2-3 minutes per slide, include a warning that each slide must carry more narrative weight, and suggest specific visual techniques (progressive builds, before/after reveals) that create movement within a single slide without adding slide count.
+
 ## The ONE MESSAGE Rule
 
 Before generating a single slide, identify the single sentence this entire talk is building toward. Every slide must advance that argument. Any slide that does not should be cut.
@@ -260,3 +288,9 @@ Before outputting the final outline, verify every item on this list. If any chec
 - Red Hat engineering voice: direct, technically credible, practical. No corporate fluff, no buzzword overload, no hedging language. Say what you mean.
 - When in doubt, cut. A tight 15-minute talk beats a rambling 20-minute one every time.
 - The best talks feel like a conversation with a smart friend, not a report from a committee.
+
+## Next Step
+
+After delivering the outline, end with this suggestion on its own line:
+
+> Run `/slide-review` to get a brutal honesty check on this outline before you invest time polishing it.
