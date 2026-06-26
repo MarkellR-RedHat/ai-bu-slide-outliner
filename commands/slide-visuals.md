@@ -30,6 +30,27 @@ No layout guidance, no complexity constraints, no indication of what the diagram
 
 **Good diagram suggestion:** "Architecture diagram with 4 nodes maximum: request gateway, router, model server pool, GPU scheduler. Horizontal left-to-right flow. Highlight the router-to-scheduler path in red -- that is the bottleneck this slide is about. Gray out everything else. Use Mermaid `graph LR` with subgraph labels for the hot path. If the audience cannot identify the bottleneck in 3 seconds, the diagram has too many nodes."
 
+## Edge Case Handling
+
+Before generating visual recommendations, check for these situations and adjust accordingly.
+
+### Lightning Talks (5 minutes or less)
+Lightning talk visuals must land instantly. Every slide gets one focal point, no exceptions. Skip complex architecture diagrams with more than 4 nodes. Favor big-number callouts, single comparison images, and full-bleed photos with minimal text overlay. The signature slide should be identifiable within the first three slides since the whole talk is over in 5 minutes.
+
+### Extended Sessions (45+ minutes)
+Longer talks need more visual variety to prevent format fatigue. Audit the deck for repeating visual patterns and break any streak of 3 or more slides using the same layout. For 45+ minute decks, recommend at least 4 different visual types across the talk. Insert visual breather slides (a full-bleed photo, a single quote, a big-number callout) at the 15-minute, 30-minute, and 40-minute marks to reset audience attention.
+
+### No Demo Available
+When there is no live demo, the visual recommendations must compensate. Replace the demo slot with annotated screenshots (circle the key area, blur the irrelevant parts), a sequence of before/after comparison slides, or a diagram build that walks through the system step by step. The visual treatment of these replacement slides should be richer than a standard content slide since they are carrying the demo's job of making the abstract concrete.
+
+### Co-Presented Talks
+For co-presented talks, maintain visual consistency across both speakers' sections. Use the same diagram style, color palette, and photo treatment throughout. Avoid a situation where Speaker A has polished visuals and Speaker B has bullet-point slides. If the speakers have different sections, establish a shared visual language in the recommendations. Use section dividers at handoff points with a consistent color treatment.
+
+### Tight Slide Constraints
+When the slide count is low, each slide must work harder visually. Recommend progressive builds and layered diagrams that reveal complexity over time within a single slide. For anchor slides that sustain 2-3 minutes of delivery, suggest background images with text overlays that change emotional tone as the speaker moves through the slide's content. Flag any slide that relies on bullets alone when it could use a comparison layout or a data visualization instead.
+
+> After applying visual recommendations, run `/slide-to-marp` to convert the polished outline into a renderable deck with the right Marp layout directives for each visual type.
+
 For EACH slide in the outline, provide all of the following:
 
 ## VISUAL TYPE RECOMMENDATION

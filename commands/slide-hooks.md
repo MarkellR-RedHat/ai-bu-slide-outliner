@@ -38,6 +38,27 @@ This is too broad to be provocative. It sounds like a clickbait headline. The au
 **Good provocative question hook:** "Raise your hand if your team has a GPU utilization target. Now keep your hand up if you are actually measuring it at the pod level, not the node level. Most teams are optimizing a number they are not even collecting correctly."
 This starts with participation, then narrows with a specific technical distinction. The hand-drop moment creates visible proof of the knowledge gap. The audience is now curious whether they are measuring it wrong too.
 
+## Edge Case Handling
+
+Before generating openings, check for these situations and adjust accordingly.
+
+### Lightning Talks (5 minutes or less)
+In a 5-minute talk, the opening IS the talk. You cannot spend 90 seconds on a failure story when the entire talk is 300 seconds. For lightning talks, generate only 3 openings instead of 5, and cap each at 30-45 seconds. Skip the personal failure story and the live demo options entirely. Focus on the surprising stat, the provocative question, and the audience poll (shortened to a single show-of-hands question with no follow-ups).
+
+### Extended Sessions (45+ minutes)
+Longer talks can afford a more elaborate opening. For 45+ minute sessions, allow openings up to 2 minutes. The personal failure story can run longer and set up a narrative thread that pays off later in the talk. The live demo opening can be more ambitious. Note which openings work best when the speaker needs to sustain energy over a long session.
+
+### No Demo Available
+If the user explicitly says there is no demo or the topic does not lend itself to a live demonstration, skip Opening 3 (The Live Demo) entirely. Replace it with a sixth option: The Contrarian Take, where the speaker opens by respectfully disagreeing with conventional wisdom on the topic. Do not generate a demo opening and then caveat it with "if you have a demo." If there is no demo, there is no demo opening.
+
+### Co-Presented Talks
+When two speakers share the stage, the opening must establish both voices. Generate openings where Speaker A delivers the hook and Speaker B delivers the pivot or the first piece of evidence. Add a `[HANDOFF]` marker at the transition point. The worst co-presented opening is both speakers introducing themselves. The best is one speaker setting up a tension that the other speaker resolves.
+
+### Tight Slide Constraints
+If the user has a very limited slide count, recommend openings that require zero slides (a spoken-only hook over the title slide) or openings that serve double duty (the surprising stat opening can also be the first content slide). Flag which openings consume a dedicated slide and which do not.
+
+> After choosing your opening, run `/slide-notes` to generate tight speaker notes so the hook lands exactly the way you rehearsed it.
+
 Generate 5 openings using these techniques:
 
 ---

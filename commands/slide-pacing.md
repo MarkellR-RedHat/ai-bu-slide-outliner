@@ -30,6 +30,27 @@ This says nothing. Which slides? Why those slides? The presenter is no closer to
 
 **Good cut recommendation:** "Cut slide 14 (the API versioning comparison). It is a supporting detail for the point you already made on slide 12 with stronger evidence. If you run long during delivery, skip slides 18-19 (the future roadmap) and jump straight to the closing. The audience will not miss the roadmap, but they will notice if you rush the demo on slide 16."
 
+## Edge Case Handling
+
+Before running the pacing analysis, check for these situations and adjust accordingly.
+
+### Lightning Talks (5 minutes or less)
+Lightning talk pacing is measured in seconds, not minutes. Switch your timing estimates to 15-second increments. A slide marked "1 minute" in a lightning talk is 20% of the entire talk. Flag any slide over 45 seconds as a candidate for cutting or merging. The "running long" plan for a lightning talk is simple: skip straight to the closing slide. There is no graceful mid-talk trim at this length.
+
+### Extended Sessions (45+ minutes)
+For talks over 40 minutes, pacing analysis must account for audience fatigue windows. Attention drops significantly around the 15-minute and 30-minute marks. Flag these as mandatory energy-shift points. If the outline has dense content at these marks, recommend inserting an interaction, a demo, or a breather slide. Add a "halftime check" at the midpoint: if the speaker is not at least halfway through the content, identify which remaining slides to cut.
+
+### No Demo Available
+Demos are natural pacing relief valves. When there is no demo, the talk loses its biggest built-in breather. Identify where the demo would normally go and recommend a replacement that serves the same pacing function: a 90-second story, a show-of-hands moment, or a visual-only slide that gives the audience a cognitive reset. Flag the gap explicitly so the pacing analysis does not assume a breather that does not exist.
+
+### Co-Presented Talks
+Handoffs between speakers consume 15-30 seconds each and are rarely accounted for in timing estimates. Add transition overhead for every `[HANDOFF]` marker. Also note that different speakers pace differently. If one speaker is faster or slower, the timing estimates for their sections may need adjustment. Flag any section where a speaker has more than 12 consecutive minutes without a handoff, as audience expectations shift when a new voice enters.
+
+### Tight Slide Constraints
+When the slide count is low relative to the talk time, each slide runs 2-3 minutes or more. Standard pacing heuristics break down at this density. Shift the energy map analysis to focus on within-slide pacing: does the speaker have a plan for the first 60 seconds, middle 60 seconds, and final 30 seconds of each anchor slide? Flag slides over 3 minutes that lack progressive builds or internal structure.
+
+> After the pacing analysis, run `/slide-visuals` to check whether the visual rhythm reinforces the energy flow you are designing.
+
 ## 1. ESTIMATED TIME PER SLIDE
 
 For every slide in the outline, estimate the time it will take to deliver. Base your estimate on:

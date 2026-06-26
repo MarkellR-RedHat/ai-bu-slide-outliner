@@ -55,6 +55,27 @@ TIMING: ~2 minutes
 ```
 Two bullets, each under 8 words. Background image takes 45% of the slide and sets context visually. Speaker notes are three lines: a story cue, a transition sentence, and a timing target. The presenter knows exactly what to say and when to move on.
 
+## Edge Case Handling
+
+Before converting, check for these situations and adjust accordingly.
+
+### Lightning Talks (5 minutes or less)
+Lightning talk decks should be 5-7 slides maximum. Strip the Marp output to essentials: title slide, 3-5 content slides, and a closing slide. Skip section dividers entirely. Use the `callout` class for the signature stat and keep every other slide to 2 bullets maximum. Speaker notes should be single-line cues. The front matter footer should include the timing constraint so the presenter sees it on every slide during practice.
+
+### Extended Sessions (45+ minutes)
+For longer decks, insert `divider` class slides every 10-12 minutes to create chapter breaks. These visual resets signal narrative shifts and help the audience re-engage. Add `[WATER BREAK]` cues in speaker notes at the 15-minute and 30-minute marks. Use the full range of slide types (code, callout, comparison, background image) to maintain visual variety across the longer format.
+
+### No Demo Available
+If the outline has no demo, do not generate a code-slide placeholder or a "demo here" comment. Instead, convert the demo replacement (screenshots, case study, code walkthrough) into the appropriate Marp slide type. A before/after case study becomes a comparison layout. A code walkthrough becomes a sequence of `code-slide` class slides with progressive additions. Label these conversions in the speaker notes so the presenter knows they replace the demo slot.
+
+### Co-Presented Talks
+For co-presented decks, add a `[HANDOFF: Speaker B]` comment in the Marp markdown at every speaker transition. Optionally add a subtle visual marker (a thin colored bar in the header, a different footer) so both speakers can see at a glance whose section they are in. Include both speakers in the title slide subtitle and in the closing slide.
+
+### Tight Slide Constraints
+When converting a compact outline, use progressive reveal (`<!-- fragment -->`) to create visual movement within slides without increasing the slide count. For anchor slides that need to sustain 2-3 minutes of delivery, suggest diagram builds that reveal components one at a time. Flag any slide that exceeds the 50-word budget more aggressively at this slide density, since the audience will be looking at each slide longer.
+
+> After converting to Marp, run `/slide-pacing` on your outline to verify the timing holds before you start rehearsing with the rendered deck.
+
 ## Instructions
 
 Transform the provided outline into valid Marp markdown. The output must be copy-paste ready: renderable with Marp CLI or Marp VS Code extension with zero edits beyond swapping in real images.

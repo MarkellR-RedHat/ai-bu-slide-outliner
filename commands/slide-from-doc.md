@@ -31,6 +31,27 @@ A document can argue five things. A talk can argue one. Pick the strongest one.
 
 **Good restructuring for stage:** The talk opens with the conclusion (the strongest result), then backs into the problem it solved, shows the struggle to get there, and closes with what it means for the audience. The document's structure is optimized for a reader who will go front to back. The talk's structure is optimized for an audience that decides in the first 90 seconds whether to keep listening.
 
+## Edge Case Handling
+
+Before starting the conversion, check for these situations and adjust accordingly.
+
+### Lightning Talks (5 minutes or less)
+A 5-minute talk built from a long document is the hardest distillation job there is. You must cut the document down to ONE insight, ONE supporting proof, and ONE call to action. Do not attempt to summarize the document. Instead, find the single most surprising or actionable sentence in the entire document and build everything around it. Generate 5-7 slides maximum. Default to the lightning talk structure.
+
+### Extended Sessions (45+ minutes)
+A long document feeding a long talk tempts the speaker to keep too much. Resist. Even at 45 minutes, the audience can absorb 3-5 core ideas at most. Use the extra time for depth, demos, and audience interaction, not for covering more sections of the document. Build in chapter break dividers every 10-12 minutes and at least two interactive moments.
+
+### No Demo Available
+If the source document describes a system, tool, or workflow but the speaker has no live demo, replace the demo slot with annotated screenshots pulled from the document, a before/after case study told as a 90-second story, or a code walkthrough using snippets from the document itself. Label the replacement clearly so the speaker knows it fills the demo role.
+
+### Co-Presented Talks
+If the user mentions a co-presenter, split document ownership by section. Add a `[HANDOFF]` marker at every speaker transition. Keep handoffs to 3-4 maximum for a 30-minute talk. Each presenter should own a full section of the document's content, not alternate slide-by-slide. Include a brief handoff line in the speaker notes where the outgoing speaker bridges to the incoming speaker's section. Both presenters share the ONE MESSAGE.
+
+### Tight Slide Constraints
+If the user requests fewer slides than the document's density warrants (fewer than 1 slide per 2 minutes of talk time), acknowledge the constraint. Use fewer, denser anchor slides with more speaker time per slide. Add explicit timing markers showing 2-3 minutes per slide. Suggest progressive builds and before/after reveals that create visual movement within a single slide without adding to the slide count.
+
+> After converting a document, run `/slide-review` to pressure-test whether the distillation kept the right pieces and cut the right ones.
+
 ## Step 1: Chain of Thought (Before You Touch a Single Slide)
 
 Work through these questions explicitly. Write out your answers. This is where the editorial judgment happens.

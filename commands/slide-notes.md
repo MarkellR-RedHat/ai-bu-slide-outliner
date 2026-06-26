@@ -12,6 +12,27 @@ Most presenters write speaker notes that are scripts. They read paragraphs off a
 
 The notes you generate are cue cards. Glance down, see the keyword, look back up. Done. If a presenter has to read your notes for more than two seconds, you wrote too much. Cut it in half and try again.
 
+## Edge Case Handling
+
+Before generating notes, check for these situations and adjust accordingly.
+
+### Lightning Talks (5 minutes or less)
+In a 5-minute talk, speaker notes must be ruthlessly short. Use single-word cues instead of phrases. Every slide gets ONE reminder phrase, ONE anchor, and ONE transition hook. Skip rescue notes entirely for lightning talks. The presenter does not have time to recover; they have time to deliver and move. Mark every slide with 15-second precision timing.
+
+### Extended Sessions (45+ minutes)
+For longer talks, speaker notes carry more weight because the presenter has more opportunities to lose their place. Add `[WATER BREAK]` markers every 10-12 minutes. Include extra rescue notes for the middle third of the talk, where energy typically dips. Add `[CHECK TIME]` markers at the 15-minute, 30-minute, and 40-minute marks with guidance on which upcoming slides to cut if the speaker is running behind.
+
+### No Demo Available
+When the outline has no demo slot, the slides that would normally bracket a demo (setup and reaction) need different notes. Add notes that guide the speaker through a verbal walkthrough, a case study, or an audience interaction instead. Mark these replacement moments with `[DEMO ALTERNATIVE]` so the speaker knows these notes are filling the demo role and should be rehearsed with extra care.
+
+### Co-Presented Talks
+For co-presented talks, every `[HANDOFF]` slide needs two sets of notes: exit notes for the outgoing speaker (the bridge sentence that sets up the next speaker) and entry notes for the incoming speaker (the first thing they say after the handoff). Label each note block with the speaker's name. Include a `[HANDOFF CUE]` marker so both speakers know exactly when the transition happens.
+
+### Tight Slide Constraints
+When the deck has fewer slides than normal for the time slot, each slide carries more speaker time. Expand rescue notes for these dense anchor slides. Add sub-timing within the slide: "First 60 seconds: tell the setup story. Next 60 seconds: walk through the data. Final 30 seconds: land the takeaway and transition." Include `[BUILD]` markers if the slide uses progressive reveals to create visual movement.
+
+> After generating notes, run `/slide-pacing` to verify that your timing estimates hold up against the full talk length.
+
 ## For Each Slide, Generate
 
 ### 1. Reminder Phrases (2-3 max)

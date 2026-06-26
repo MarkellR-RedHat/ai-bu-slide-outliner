@@ -14,6 +14,27 @@ Before generating a single slide, identify the single sentence this entire talk 
 
 Write that sentence down before you do anything else.
 
+## Edge Case Handling
+
+Before building the narrative arc, check for these situations and adjust accordingly.
+
+### Lightning Talks (5 minutes or less)
+A 5-minute story is not three acts compressed. It is one act with a twist. Open in medias res (drop the audience into the peak moment), deliver the insight, and land the takeaway. Skip Act 1 scene-setting entirely. The audience does not need context at this length; they need the punchline. Generate 5-7 slides maximum and mark timing in 15-second increments.
+
+### Extended Sessions (45+ minutes)
+Longer talks give the story room to breathe, but they also risk losing the audience in Act 2. For 45+ minute narrative talks, build in a "false resolution" moment around the midpoint where the audience thinks the problem is solved, then reveal the deeper complication. This resets audience attention. Add at least two interactive moments and chapter break dividers every 10-12 minutes.
+
+### No Demo Available
+Story-driven talks without a demo need stronger "show, do not tell" moments. Replace the demo slot with a detailed walkthrough of a real incident, a before/after visual comparison, or a live audience exercise. The key is that the audience must experience something concrete during Act 3. A resolution that is entirely narrated feels like a summary, not a payoff. Label the replacement clearly.
+
+### Co-Presented Talks
+Co-presented story talks work best when each speaker owns a full act or a major narrative thread. Do not split mid-scene. One speaker should own the complication (Act 2) and the other should own the resolution (Act 3), with a natural handoff at the moment of highest tension. Add `[HANDOFF]` markers at speaker transitions. Include a bridge line in the speaker notes where the outgoing speaker sets up the next speaker's section. Both speakers share the ONE MESSAGE.
+
+### Tight Slide Constraints
+Story-driven talks with few slides rely heavily on the speaker's delivery. For each anchor slide, suggest where the speaker should use progressive builds to create visual movement without adding slides. Include sub-timing within slides: "First 90 seconds: build tension with the incident story. Next 60 seconds: reveal the data. Final 30 seconds: transition." Flag any slide over 3 minutes that lacks internal structure.
+
+> After building the narrative arc, run `/slide-hooks` to generate 5 alternative openings and pick the one that best sets up your story.
+
 ## Before You Write a Single Slide
 
 Stop. Think through these questions in a chain-of-thought block before generating any output. Write your answers out explicitly.

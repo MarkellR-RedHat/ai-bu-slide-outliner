@@ -10,6 +10,27 @@ Before anything else, identify the single sentence this entire talk is building 
 
 If you cannot state the talk's core message in one sentence, that is the first and most important finding of this review.
 
+## Edge Case Handling
+
+Before starting the review, check for these situations and adjust accordingly.
+
+### Lightning Talks (5 minutes or less)
+Review a lightning talk differently than a standard talk. The bar is higher: every slide must be load-bearing, and there is zero room for "nice to have" content. If the outline has more than 7 slides, that is finding number one. A lightning talk with filler slides is worse than a short talk that ends early. Apply the KILL IT verdict more aggressively. The opening must hook within 15 seconds, not 60.
+
+### Extended Sessions (45+ minutes)
+For longer talks, shift the review focus toward pacing and energy management. A 45-minute talk can have great individual slides and still fail because the audience stopped listening at minute 20. Check for audience interaction points at least every 12 minutes. Check for chapter break dividers. A 45-minute talk with no breathing room is a 45-minute endurance test that the audience will not finish mentally.
+
+### No Demo Available
+If the outline has no demo, check whether the talk compensates. A technical talk without a demo needs stronger visual evidence: annotated screenshots, before/after comparisons, or code walkthroughs. If the outline replaces the demo with nothing, flag that gap. If the outline forces a demo placeholder that the speaker does not actually have, flag that too and recommend a concrete replacement.
+
+### Co-Presented Talks
+Review co-presented talks for handoff quality. Every `[HANDOFF]` transition must feel motivated by the content, not just by whose turn it is to talk. Check that each speaker owns a coherent section rather than alternating slide-by-slide. Flag any handoff that lacks a bridge sentence. Check that both speakers serve the same ONE MESSAGE and neither goes off on their own thesis.
+
+### Tight Slide Constraints
+When the slide count is low relative to the talk time, each slide carries more narrative weight. Review these decks for within-slide structure. Does each anchor slide have enough depth in its speaker notes to sustain 2-3 minutes of delivery? Flag any anchor slide that has thin notes and suggest expanding the story, data, or interaction planned for that slide.
+
+> After the review, run `/slide-notes` to rebuild speaker notes for any slides you rewrote during the review.
+
 ## Review Protocol
 
 Work through every section below in order. Be direct. Be specific. No compliment sandwiches. No "consider maybe perhaps" hedging. No "you might want to think about" padding. If something is weak, say it is weak and say exactly how to fix it. Every finding must include a concrete rewrite or a specific action.
